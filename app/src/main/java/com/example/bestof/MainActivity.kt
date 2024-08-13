@@ -28,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.bestof.modules.home.screens.HomeScreen
 import com.example.bestof.ui.theme.BestOfTheme
 import com.example.bestof.ui.theme.josefinFontFamily
 
@@ -41,32 +42,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Header()
+                    HomeScreen()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Header() {
-    Row (Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        Alignment.CenterVertically
-        ) {
-        IconButton(onClick = { /* ação ao clicar no botão */ }) {
-            Icon(Icons.Filled.Menu, contentDescription = "Options Icon") }
-        Text(text = "Best of", fontFamily = josefinFontFamily, fontSize = 24.sp)
-        IconButton(onClick = { /* ação ao clicar no botão */ }) {
-            Icon(Icons.Filled.Search, contentDescription = "Search Icon")
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun HeaderPreview() {
-    BestOfTheme {
-        Header()
     }
 }
