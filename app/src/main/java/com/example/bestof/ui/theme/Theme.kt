@@ -13,7 +13,10 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.core.view.WindowCompat
+import com.example.bestof.R
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -31,10 +34,11 @@ private val LightColorScheme = lightColorScheme(
 fun BestOfTheme(
     content: @Composable () -> Unit
 ) {
-
     MaterialTheme(
         colorScheme = lightColorScheme(),
         typography = Typography,
         content = content
     )
 }
+
+
