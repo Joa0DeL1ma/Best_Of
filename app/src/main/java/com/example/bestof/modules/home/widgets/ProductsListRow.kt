@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,14 +23,22 @@ import com.example.bestof.R
 
 @Composable
 fun ProductsListRow(modifier: Modifier = Modifier) {
+    val name = "Sony wh-1000xm5"
+    var originalText = name
+    val maxLength = 12
+    val displayText = if (originalText.length > maxLength) {
+        originalText.take(maxLength) + "..."
+    } else {
+        originalText
+    }
     Column {
         Text(
+            modifier = Modifier.padding(8.dp),
             style = MaterialTheme.typography.titleSmall,
-            modifier = Modifier.padding(bottom = 8.dp),
-            text = "Headsets")
+            text = "Headsets"
+        )
         Box(
             modifier = Modifier,
-            contentAlignment = Alignment.BottomStart
         ) {
             Box(
                 modifier = Modifier
@@ -49,14 +58,32 @@ fun ProductsListRow(modifier: Modifier = Modifier) {
                     alignment = Alignment.Center
                 )
             }
+        }
+        Row {
             Icon(
                 modifier = Modifier
-                    .size(52.dp)
-                    .padding(bottom = 8.dp),
+                    .padding(vertical = 8.dp)
+                    .size(52.dp),
                 painter = painterResource(id = R.drawable.ic_products_medal),
                 tint = Color(0xfff4af3f),
                 contentDescription = ""
             )
+            Column {
+                Row(modifier = Modifier.padding(top = 14.dp)) {
+                    Text(text = "4,7", style = MaterialTheme.typography.bodySmall)
+                    for (i in 1..5) {
+                        Icon(
+                            modifier = Modifier.size(16.dp),
+                            painter = painterResource(id = R.drawable.ic_star_filled),
+                            contentDescription = ""
+                        )
+                    }
+                }
+                Text(
+                    modifier = Modifier.padding(top = 4.dp),
+                    text = displayText,
+                    )
+            }
         }
     }
 }
