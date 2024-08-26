@@ -51,7 +51,7 @@ fun ProductsListRow(modifier: Modifier = Modifier) {
 }
 @Composable
 fun ProductItem() {
-    val name = "Sony WH-1000XM5SSSSSSSSSSS"
+    val name = "Sony WH-1000XM5SSSSSSSSSSS"//
     val maxLength = 17
     val displayText = if (name.length > maxLength) {
         name.take(maxLength) + "..."
