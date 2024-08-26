@@ -1,6 +1,7 @@
 package com.example.bestof.modules.home.widgets
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -28,6 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.bestof.R
 import com.example.bestof.ui.theme.BestOfTheme
 
@@ -37,11 +39,11 @@ fun ProductsListRow(modifier: Modifier = Modifier) {
         Text(
             text = "Headsets",
             style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(start = 8.dp , bottom = 12.dp, top = 12.dp)
+            modifier = Modifier.padding(start = 8.dp, bottom = 12.dp, top = 12.dp)
         )
         LazyRow(
             contentPadding = PaddingValues(horizontal = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(3) {
                 ProductItem()
@@ -49,24 +51,21 @@ fun ProductsListRow(modifier: Modifier = Modifier) {
         }
     }
 }
+
 @Composable
 fun ProductItem() {
     val name = "Sony WH-1000XM5SSSSSSSSSSS"//
-    val maxLength = 17
+    val maxLength = 12
     val displayText = if (name.length > maxLength) {
         name.take(maxLength) + "..."
     } else {
         name
     }
 
-    Column(
-        modifier = Modifier
-            .width(180.dp) // Largura fixa para cada item
-    ) {
+    Column() {
         Box(
             modifier = Modifier
                 .size(160.dp)
-                .fillMaxWidth()
                 .border(
                     width = 2.dp,
                     color = Color(0xffD9D9D9),
@@ -78,66 +77,109 @@ fun ProductItem() {
                 painter = painterResource(id = R.drawable.sonywh1000xm5),
                 contentDescription = "Produto",
                 contentScale = ContentScale.Fit,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier
+                    .padding(4.dp)
+                    .align(Alignment.Center)
             )
-        }
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(top = 0.dp )
-        ) {
+            Box(
+                modifier = Modifier
+                    .padding(4.dp)
+                    .background(Color.White)
+                    .size(28.dp)
+                    .align(Alignment.TopStart)
+            )
             Icon(
                 painter = painterResource(id = R.drawable.ic_products_medal),
                 contentDescription = "Medalha",
                 tint = Color(0xfff4af3f),
-                modifier = Modifier.size(42.dp)
+                modifier = Modifier
+                    .padding(6.dp)
+                    .size(24.dp)
+                    .align(Alignment.TopStart)
             )
-            Spacer(modifier = Modifier.width(4.dp))
-            Text(
-                text = "4,7",
-                style = MaterialTheme.typography.bodyLarge
-            )
-            Spacer(modifier = Modifier.width(2.dp))
-            Row {
-                repeat(4) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_star_filled),
-                        contentDescription = "Estrela preenchida",
-                        modifier = Modifier.padding(top = 4.dp).size(16.dp)
-                    )
-                }
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_star_half),
-                    contentDescription = "Meia estrela",
-                    modifier = Modifier.padding(top = 4.dp).size(16.dp)
-                )
-            }
         }
-        Text(
+        Row {
+            Column {
+                Text(
             maxLines = 1,
             text = displayText,
             style = MaterialTheme.typography.labelLarge,
-            modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp)
+            modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp),
+                    fontSize = 14.sp
         )
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(start = 2.dp)
-        ) {
-            IconButton(modifier = Modifier.padding(start = 48.dp, end = 4.dp).size(20.dp), onClick = {}) {
-                Icon(
-                    modifier = Modifier.size(20.dp),
-                    painter = painterResource(id = R.drawable.ic_open_in_new_tab),
-                    contentDescription = "Abrir em nova aba",
-                    tint = Color.Gray,
-
-                )
+                Row {
+                    Text(
+                        maxLines = 1,
+                        text = "U$",
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp),
+                    )
+                    Text(
+                        maxLines = 1,
+                        text = "2000,00",
+                        style = MaterialTheme.typography.titleSmall,
+                        modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp),
+                    )
+                }
             }
-            Text(
-                modifier = Modifier,
-                text = "R$ 4.200,00",
-                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
-            )
-
+            Text(text = "4.7")
         }
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically,
+//            modifier = Modifier.padding(top = 0.dp)
+//        ) {
+//
+//            Spacer(modifier = Modifier.width(4.dp))
+//            Text(
+//                text = "4,7",
+//                style = MaterialTheme.typography.bodyLarge
+//            )
+//            Spacer(modifier = Modifier.width(2.dp))
+//            Row {
+//                repeat(4) {
+//                    Icon(
+//                        painter = painterResource(id = R.drawable.ic_star_filled),
+//                        contentDescription = "Estrela preenchida",
+//                        modifier = Modifier
+//                            .padding(top = 4.dp)
+//                            .size(16.dp)
+//                    )
+//                }
+//                Icon(
+//                    painter = painterResource(id = R.drawable.ic_star_half),
+//                    contentDescription = "Meia estrela",
+//                    modifier = Modifier
+//                        .padding(top = 4.dp)
+//                        .size(16.dp)
+//                )
+//            }
+//        }
+//        Text(
+//            maxLines = 1,
+//            text = displayText,
+//            style = MaterialTheme.typography.labelLarge,
+//            modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp)
+//        )
+//        Row(
+//            verticalAlignment = Alignment.CenterVertically,
+//            modifier = Modifier.padding(start = 2.dp)
+//        ) {
+//            IconButton(modifier = Modifier
+//                .padding(start = 48.dp, end = 4.dp)
+//                .size(20.dp), onClick = {}) {
+//                Icon(
+//                    modifier = Modifier.size(20.dp),
+//                    painter = painterResource(id = R.drawable.ic_open_in_new_tab),
+//                    contentDescription = "Abrir em nova aba",
+//                    tint = Color.Gray,
+//
+//                    )
+//            }
+//            Text(
+//                modifier = Modifier,
+//                text = "R$ 4.200,00",
+//                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
+//            )
     }
 }
 
