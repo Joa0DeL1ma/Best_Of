@@ -30,6 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bestof.R
+import com.example.bestof.modules.home.widgets.ProductsListRow
 import com.example.bestof.modules.home.widgets.SearchSection
 import com.example.bestof.ui.theme.BestOfTheme
 
@@ -59,7 +60,12 @@ fun HomeScreen() {
         },
         content = { padding ->
             Column(modifier = Modifier.padding(padding)) {
-                SearchSection()
+                SearchSection(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 6.dp),
+                )
+                ProductsListRow(modifier = Modifier.padding(top = 6.dp))
             }
         },
         bottomBar = {
