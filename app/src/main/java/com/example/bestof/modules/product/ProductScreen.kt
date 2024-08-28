@@ -1,14 +1,13 @@
-package com.example.bestof.modules.home.screens
+package com.example.bestof.modules.product
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.bestof.modules.home.widgets.ImageCarousel
+import com.example.bestof.modules.product.widgets.ImageCarousel
 import com.example.bestof.R
-import com.example.bestof.modules.home.widgets.ProductInformation
+import com.example.bestof.modules.product.widgets.ProductInformation
 import com.example.bestof.ui.theme.BestOfTheme
 
 

@@ -1,4 +1,4 @@
-package com.example.bestof.modules.home.widgets
+package com.example.bestof.modules.product.widgets
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
