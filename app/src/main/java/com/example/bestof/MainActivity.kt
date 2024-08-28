@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.bestof.modules.home.screens.HomeScreen
+import com.example.bestof.modules.home.screens.ProductScreen
 import com.example.bestof.ui.theme.BestOfTheme
 import com.example.bestof.ui.theme.josefinFontFamily
 
@@ -42,7 +43,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen()
+                    //HomeScreen()
+                    ProductScreen()
                 }
             }
         }
