@@ -123,19 +123,20 @@ fun ProductItem() {
                         modifier = Modifier
                             .align(Alignment.Bottom)
                             .padding(bottom = 3.dp)
-                            .size(16.dp),
+                            .size(18.dp),
                         painter = painterResource(id = R.drawable.ic_star_filled),
-                        contentDescription = "Estrela preenchida"
+                        contentDescription = "Estrela preenchida",
+                        tint = Color(0xffde7921)
                     )
                     Text(
-                        modifier = Modifier.padding(end = 0.dp, bottom = 1.dp),
+                        modifier = Modifier.padding(bottom = 1.dp, top = 7.dp ),
                         text = "4.7",
                         style = MaterialTheme.typography.titleSmall
                     )
                 }
                 Row {
                     Text(
-                        modifier = Modifier.padding(top = 6.dp),
+                        modifier = Modifier.padding(top = 0.dp),
                         text = "8.6k reviews",
                         fontSize = 10.sp
                     )

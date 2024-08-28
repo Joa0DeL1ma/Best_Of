@@ -63,9 +63,11 @@ fun HomeScreen() {
                 SearchSection(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 6.dp),
+                        .padding(top = 6.dp, bottom = 16.dp),
                 )
-                ProductsListRow(modifier = Modifier.padding(top = 6.dp))
+                ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
+                ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
+                ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
             }
         },
         bottomBar = {
