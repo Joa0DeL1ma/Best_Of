@@ -2,9 +2,13 @@ package com.example.bestof.modules.product
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.bestof.modules.product.widgets.ImageCarousel
 import com.example.bestof.R
 import com.example.bestof.modules.product.widgets.ProductInformation
@@ -21,9 +25,15 @@ fun ProductScreen() {
         R.drawable.sonywh1000xm5,
     )
     Column {
-        Column(modifier = Modifier.weight(1f)) {
+        Column(
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .weight(1f)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
             ImageCarousel(images)
-            ProductInformation(modifier = Modifier.fillMaxWidth())
+            ProductInformation(modifier = Modifier.padding(vertical = 16.dp, horizontal = 12.dp))
         }
     }
 }

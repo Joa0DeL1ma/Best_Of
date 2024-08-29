@@ -104,13 +104,13 @@ fun ProductItem() {
                         maxLines = 1,
                         text = "U$",
                         style = MaterialTheme.typography.titleSmall,
-                        modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp),
+                        modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
                     )
                     Text(
                         maxLines = 1,
                         text = "2000,00",
                         style = MaterialTheme.typography.titleSmall,
-                        modifier = Modifier.padding(start = 4.dp, top = 0.dp, bottom = 4.dp),
+                        modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
                     )
                 }
             }
@@ -129,14 +129,14 @@ fun ProductItem() {
                         tint = Color(0xffde7921)
                     )
                     Text(
-                        modifier = Modifier.padding(bottom = 1.dp, top = 7.dp ),
+                        modifier = Modifier.align(Alignment.CenterVertically).padding(bottom = 1.dp),
                         text = "4.7",
-                        style = MaterialTheme.typography.titleSmall
+                        style = MaterialTheme.typography.titleMedium
                     )
                 }
                 Row {
                     Text(
-                        modifier = Modifier.padding(top = 0.dp),
+                        modifier = Modifier.padding(top = 4.dp),
                         text = "8.6k reviews",
                         fontSize = 10.sp
                     )
