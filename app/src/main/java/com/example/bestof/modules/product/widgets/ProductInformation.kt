@@ -71,7 +71,7 @@ fun ProductInformation(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.End
         ) {
             Icon( //todo, fazer com que seja nullable, com que mude o tint dependendo da
-                  //todo, posição do produto no ranking
+                  //todo, posição do produto no ranking//
                 painter = painterResource(id = R.drawable.ic_products_medal),
                 contentDescription = "Medalha",
                 tint = Color(0xfff4af3f),
