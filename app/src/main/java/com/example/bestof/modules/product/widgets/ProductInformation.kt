@@ -90,7 +90,7 @@ fun ProductInformation(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Normal,
         )
-        Text(
+        Text(//
             style = MaterialTheme.typography.bodyMedium,
             text = "Bloqueia o mau cheiro do n°2 " +
                     "Elimina 99% das bactérias do vaso sanitário " +
