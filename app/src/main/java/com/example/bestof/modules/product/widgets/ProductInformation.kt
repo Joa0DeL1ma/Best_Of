@@ -80,6 +80,7 @@ fun ProductInformation(modifier: Modifier = Modifier) {
             )
             Text(
                 modifier = Modifier
+                    .align(Alignment.CenterVertically)
                     .padding(end = 4.dp),
                 text = "(8.600 Reviews)"
             )
@@ -90,7 +91,7 @@ fun ProductInformation(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Normal,
         )
-        Text(//
+        Text( // todo place limiter on section size here
             style = MaterialTheme.typography.bodyMedium,
             text = "Bloqueia o mau cheiro do n°2 " +
                     "Elimina 99% das bactérias do vaso sanitário " +
@@ -108,20 +109,20 @@ fun ProductInformation(modifier: Modifier = Modifier) {
                 contentColor = Color.Black
             )
         ) {
-            Text(text = "Add to cart", style = MaterialTheme.typography.bodyLarge)
-        }
-        OutlinedButton(
-            modifier = Modifier
-                .padding(top = 4.dp)
-                .fillMaxWidth(),
-            onClick = { /*TODO*/ },
-            border = BorderStroke(1.dp, Color.Black),
-            colors = ButtonDefaults.outlinedButtonColors(
-                contentColor = Color.Black
-            )
-        ) {
             Text(text = "Buy Now", style = MaterialTheme.typography.bodyLarge)
         }
+//        OutlinedButton(
+//            modifier = Modifier
+//                .padding(top = 4.dp)
+//                .fillMaxWidth(),
+//            onClick = { /*TODO*/ },
+//            border = BorderStroke(1.dp, Color.Black),
+//            colors = ButtonDefaults.outlinedButtonColors(
+//                contentColor = Color.Black
+//            )
+//        ) {
+//            Text(text = "Buy Now", style = MaterialTheme.typography.bodyLarge)
+//        }
     }
 }
 

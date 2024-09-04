@@ -107,10 +107,13 @@ fun ProductItem() {
                         modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
                     )
                     Text(
+                        overflow = TextOverflow.Ellipsis,
                         maxLines = 1,
-                        text = "2000,00",
+                        text = "2000.00",
                         style = MaterialTheme.typography.titleSmall,
-                        modifier = Modifier.padding(start = 4.dp, bottom = 4.dp),
+                        modifier = Modifier
+                            .padding(start = 4.dp, bottom = 4.dp)
+                            .width(61.dp)
                     )
                 }
             }
@@ -122,21 +125,21 @@ fun ProductItem() {
                     Icon(
                         modifier = Modifier
                             .align(Alignment.Bottom)
-                            .padding(bottom = 3.dp)
+                            .padding(top = 4.dp, bottom = 3.dp)
                             .size(18.dp),
                         painter = painterResource(id = R.drawable.ic_star_filled),
                         contentDescription = "Estrela preenchida",
                         tint = Color(0xffde7921)
                     )
                     Text(
-                        modifier = Modifier.align(Alignment.CenterVertically).padding(bottom = 1.dp),
+                        modifier = Modifier.align(Alignment.Bottom).padding(bottom = 1.dp),
                         text = "4.7",
                         style = MaterialTheme.typography.titleMedium
                     )
                 }
                 Row {
                     Text(
-                        modifier = Modifier.padding(top = 4.dp),
+                        modifier = Modifier,
                         text = "8.6k reviews",
                         fontSize = 10.sp
                     )

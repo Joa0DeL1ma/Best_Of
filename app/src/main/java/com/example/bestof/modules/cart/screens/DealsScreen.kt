@@ -7,10 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -34,7 +34,7 @@ import com.example.bestof.ui.theme.BestOfTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CartScreen() {
+fun DealsScreen() {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -52,13 +52,29 @@ fun CartScreen() {
                             style = MaterialTheme.typography.headlineMedium
                         )
                     }
-
-                })
+                }
+            )
         },
         content = { padding ->
             Column(modifier = Modifier.padding(padding)) {
-            BackButton(modifier = Modifier.padding(start = 4.dp, top = 16.dp))
+                BackButton(modifier = Modifier.padding(start = 4.dp, top = 16.dp))
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .padding(bottom = 8.dp)
+                            .size(40.dp),
+                        painter = painterResource(id = R.drawable.ic_savings),
+                        contentDescription = "")
+                    Text(style = MaterialTheme.typography.titleLarge, text = "Deals here soon!")
+                }
             }
+
         },
         bottomBar = {
             BottomAppBar(
@@ -103,11 +119,12 @@ fun CartScreen() {
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Icon(
-                                imageVector = Icons.Filled.ShoppingCart, contentDescription = ""
+                                painter = painterResource(id = R.drawable.ic_savings_filled),
+                                contentDescription = "",
                             )
                             Text(
                                 modifier = Modifier.padding(0.dp),
-                                text = "Cart",
+                                text = "Deals",
                                 style = MaterialTheme.typography.labelMedium,
                                 textAlign = TextAlign.Center
                             )
@@ -164,8 +181,8 @@ fun CartScreen() {
 
 @Preview
 @Composable
-private fun HomeScreenPreview() {
+private fun DealsScreenPreview() {
     BestOfTheme {
-        CartScreen()
+        DealsScreen()
     }
 }
