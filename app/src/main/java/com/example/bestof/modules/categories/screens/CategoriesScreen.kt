@@ -2,13 +2,16 @@ package com.example.bestof.modules.categories.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -29,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bestof.R
@@ -62,56 +66,70 @@ fun CategoriesScreen() {
 
             Row(modifier = Modifier.padding(padding)) {
                 Column { //todo fazer uma section aqui
-                    BackButton(
-                        modifier = Modifier.padding(
-                            start = 4.dp,
-                            top = 16.dp,
-                            bottom = 15.dp
+                    Box(modifier = Modifier.fillMaxWidth()) {
+                        BackButton(
+                            modifier = Modifier.padding(
+                                start = 4.dp,
+                                top = 16.dp,
+                                bottom = 15.dp
+                            )
                         )
-                    )
-                    for (i in 1..10) {
-                        Column( //todo transformar em lazycolumn
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                            modifier = Modifier
-                                .padding(bottom = 4.dp)
-                                .size(60.dp)
-                                .clip(
-                                    RoundedCornerShape(
-                                        topStart = 0.dp,
-                                        topEnd = 10.dp,
-                                        bottomStart = 0.dp,
-                                        bottomEnd = 10.dp
-                                    )
-                                )
-                                .background(Color(0xffD9D9D9))
-                        ) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_savings),
-                                contentDescription = ""
-                            )
-                            Text(style = MaterialTheme.typography.labelSmall, text = "Household")
-                        }
                     }
-                }
-                Column (modifier = Modifier.fillMaxWidth()) {
-                    Row () {
-                        Column( //todo transformar em lazycolumn
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                            modifier = Modifier
-                                .padding(bottom = 4.dp)
-                                .size(60.dp)
-                                .clip(
-                                    RoundedCornerShape(10.dp)
-                                )
-                                .background(Color(0xffD9D9D9))
-                        ) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.ic_savings),
-                                contentDescription = ""
-                            )
-                            Text(style = MaterialTheme.typography.labelSmall, text = "Household")
+                    Row(modifier = Modifier.fillMaxSize()) {
+                        Column {
+                            for (i in 1..7) {
+                                Row(
+                                    modifier = Modifier
+                                        .background(Color(0xffD9D9D9))
+                                        .width(115.dp)
+                                ) {
+                                    Icon(
+                                        modifier = Modifier.align(Alignment.CenterVertically),
+                                        painter = painterResource(id = R.drawable.ic_savings),
+                                        contentDescription = ""
+                                    )
+                                    Text(
+                                        overflow = TextOverflow.Ellipsis,
+                                        maxLines = 2,
+                                        modifier = Modifier.padding(
+                                            start = 8.dp,
+                                            top = 12.dp,
+                                            bottom = 8.dp
+                                        ),
+                                        style = MaterialTheme.typography.labelLarge,
+                                        text = "Household"
+                                    )
+                                }
+                            }
+                        }
+
+                            Column {
+                                for (g in 1..6) {
+                                Row {
+                                    for (j in 1..3) {
+                                        Column(
+                                            modifier = Modifier
+                                                .padding(start = 20.dp, bottom = 20.dp)
+                                                .size(68.dp)
+                                                .clip(RoundedCornerShape(8.dp))
+                                                .background(Color(0xffD9D9D9))
+
+                                            ,
+                                            verticalArrangement = Arrangement.Center,
+                                            horizontalAlignment = Alignment.CenterHorizontally
+                                        ) {
+                                            Icon(
+                                                painter = painterResource(id = R.drawable.ic_savings_filled),
+                                                contentDescription = ""
+                                            )
+                                            Text(
+                                                style = MaterialTheme.typography.bodySmall,
+                                                text = "Headsets"
+                                            )
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

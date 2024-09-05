@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.example.bestof.modules.categories.screens.CategoriesScreen
 import com.example.bestof.modules.product.ProductScreen
 import com.example.bestof.ui.theme.BestOfTheme
 
@@ -21,7 +22,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //HomeScreen()
-                    ProductScreen()
+                    //ProductScreen()
+                    CategoriesScreen()
                 }
             }
         }
