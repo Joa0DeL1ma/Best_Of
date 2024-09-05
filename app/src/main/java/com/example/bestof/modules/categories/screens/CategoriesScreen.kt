@@ -5,12 +5,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -36,6 +40,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bestof.R
 import com.example.bestof.modules.cart.widgets.BackButton
+import com.example.bestof.modules.categories.model.itemList
 import com.example.bestof.ui.theme.BestOfTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -65,7 +70,7 @@ fun CategoriesScreen() {
 
             Row(modifier = Modifier.padding(padding)) {
                 Column { //todo fazer uma section aqui
-                    Box(modifier = Modifier.fillMaxWidth()) {
+                    Box {
                         BackButton(
                             modifier = Modifier.padding(
                                 start = 4.dp,
@@ -74,65 +79,77 @@ fun CategoriesScreen() {
                             )
                         )
                     }
-                    Row(modifier = Modifier.fillMaxSize()) {
-                        Column {
-                            for (i in 1..7) {
-                                Row(
-                                    modifier = Modifier
-                                        .background(Color(0xffD9D9D9))
-                                        .width(115.dp)
-                                ) {
-                                    Icon(
-                                        modifier = Modifier.align(Alignment.CenterVertically),
-                                        painter = painterResource(id = R.drawable.ic_savings),
-                                        contentDescription = ""
-                                    )
-                                    Text(
-                                        overflow = TextOverflow.Ellipsis,
-                                        maxLines = 2,
-                                        modifier = Modifier.padding(
-                                            start = 8.dp,
-                                            top = 12.dp,
-                                            bottom = 8.dp
-                                        ),
-                                        style = MaterialTheme.typography.labelLarge,
-                                        text = "Household"
-                                    )
-                                }
+
+                    LazyColumn {
+                        items(itemList) { category ->
+                            Row(
+                                modifier = Modifier
+                                    .background(Color(0xffD9D9D9))
+                                    .width(115.dp)
+                            ) {
+                                Icon(
+                                    modifier = Modifier.align(Alignment.CenterVertically),
+                                    imageVector = category.icon,
+                                    contentDescription = ""
+                                )
+                                Text(
+                                    overflow = TextOverflow.Ellipsis,
+                                    maxLines = 2,
+                                    modifier = Modifier.padding(
+                                        start = 8.dp,
+                                        top = 12.dp,
+                                        bottom = 8.dp
+                                    ),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    text = category.name
+                                )
                             }
                         }
+                    }
 
-                            Column {
-                                for (g in 1..6) {
-                                Row {
-                                    for (j in 1..3) {
-                                        Column(
-                                            modifier = Modifier
-                                                .padding(start = 20.dp, bottom = 20.dp)
-                                                .size(68.dp)
-                                                .clip(RoundedCornerShape(8.dp))
-                                                .background(Color(0xffD9D9D9))
 
-                                            ,
-                                            verticalArrangement = Arrangement.Center,
-                                            horizontalAlignment = Alignment.CenterHorizontally
-                                        ) {
-                                            Icon(
-                                                painter = painterResource(id = R.drawable.ic_savings_filled),
-                                                contentDescription = ""
-                                            )
-                                            Text(
-                                                style = MaterialTheme.typography.bodySmall,
-                                                text = "Headsets"
-                                            )
-                                        }
+                }
+                val rows = itemList.chunked(3)
+                    LazyColumn(modifier = Modifier) {
+                        item{
+                            Spacer(modifier = Modifier.height(70.dp))
+                        }
+                        itemsIndexed(rows) { _, rowItems ->
+                            Row(
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                modifier = Modifier.padding(8.dp)
+                            ) {
+                                rowItems.forEach { item ->
+                                    Column(
+                                        modifier = Modifier
+                                            .padding(start = 4.dp, bottom = 4.dp)
+                                            .height(70.dp)
+                                            .weight(1f)
+                                            .clip(RoundedCornerShape(8.dp))
+                                            .background(Color(0xffD9D9D9)),
+                                        verticalArrangement = Arrangement.Center,
+                                        horizontalAlignment = Alignment.CenterHorizontally
+                                    ) {
+                                        Icon(
+                                            imageVector = item.icon,
+                                            contentDescription = item.name
+                                        )
+                                        Text(
+                                            textAlign = TextAlign.Center,
+                                            text = item.name,
+                                        )
                                     }
+                                }
+                                repeat(3 - rowItems.size) {
+                                    Text(
+                                        text = "", // Empty text
+                                        modifier = Modifier.weight(1f) // Takes up the same space as others
+                                    )
                                 }
                             }
                         }
                     }
                 }
-            }
         },
         bottomBar = {
             BottomAppBar(
