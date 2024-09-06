@@ -65,7 +65,7 @@ val computerAccessoriesList = listOf(
     CategoriesItems(R.drawable.ic_electronics, "Headset"),
 
 )
-//
+
 val homeKitchenList = listOf(
     CategoriesItems(R.drawable.ic_fashion, "Cleaning Robot"),
     CategoriesItems(R.drawable.ic_garden, "Action Camera"),
