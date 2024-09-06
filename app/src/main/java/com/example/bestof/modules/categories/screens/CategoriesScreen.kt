@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -40,7 +39,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bestof.R
 import com.example.bestof.modules.cart.widgets.BackButton
-import com.example.bestof.modules.categories.model.itemList
+import com.example.bestof.modules.categories.model.categoriesList
 import com.example.bestof.ui.theme.BestOfTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -81,15 +80,17 @@ fun CategoriesScreen() {
                     }
 
                     LazyColumn {
-                        items(itemList) { category ->
+                        items(categoriesList) { category ->
                             Row(
                                 modifier = Modifier
                                     .background(Color(0xffD9D9D9))
                                     .width(115.dp)
                             ) {
                                 Icon(
-                                    modifier = Modifier.align(Alignment.CenterVertically),
-                                    imageVector = category.icon,
+                                    modifier = Modifier
+                                        .padding(start = 2.dp)
+                                        .align(Alignment.CenterVertically),
+                                    painter = painterResource(id = category.icon),
                                     contentDescription = ""
                                 )
                                 Text(
@@ -109,7 +110,7 @@ fun CategoriesScreen() {
 
 
                 }
-                val rows = itemList.chunked(3)
+                val rows = categoriesList.chunked(3)
                     LazyColumn(modifier = Modifier) {
                         item{
                             Spacer(modifier = Modifier.height(70.dp))
@@ -131,7 +132,7 @@ fun CategoriesScreen() {
                                         horizontalAlignment = Alignment.CenterHorizontally
                                     ) {
                                         Icon(
-                                            imageVector = item.icon,
+                                            painter = painterResource(id = item.icon),
                                             contentDescription = item.name
                                         )
                                         Text(
