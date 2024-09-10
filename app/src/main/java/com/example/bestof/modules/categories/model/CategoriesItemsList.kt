@@ -5,8 +5,8 @@ import com.example.bestof.R
 data class CategoriesItems(val icon: Int, val name: String)
 
 val categoriesList = listOf(
-    CategoriesItems(R.drawable.ic_electronics, "Electronics"),
-    CategoriesItems(R.drawable.ic_home_kitchen, "Home & Kitchen"),
+    CategoriesItems(R.drawable.ic_electronics, "Electronics"), //
+    CategoriesItems(R.drawable.ic_home_kitchen, "Home & Kitchen"), //
     CategoriesItems(R.drawable.ic_beauty_care, "Beauty & Care"),
     CategoriesItems(R.drawable.ic_shoes_jewelry, "Shoes & Jewelry"),
     CategoriesItems(R.drawable.ic_toys_games, "Toys & Games"),
@@ -71,14 +71,24 @@ val homeKitchenList = listOf(
     CategoriesItems(R.drawable.ic_garden, "Action Camera"),
     CategoriesItems(R.drawable.ic_electronics, "Smart Light"),
     CategoriesItems(R.drawable.ic_electronics, "Smart Locker"),
-    CategoriesItems(R.drawable.ic_electronics, "Mouse Pad"),
-    CategoriesItems(R.drawable.ic_electronics, "Headset"),
-    CategoriesItems(R.drawable.ic_electronics, "Headset"),
-    CategoriesItems(R.drawable.ic_electronics, "Headset"),
+    CategoriesItems(R.drawable.ic_electronics, "Air Fryer"),
+    CategoriesItems(R.drawable.ic_electronics, "Blender"),
+    CategoriesItems(R.drawable.ic_electronics, "Coffee Machine"),
+    CategoriesItems(R.drawable.ic_electronics, "Toaster"),
+    CategoriesItems(R.drawable.ic_electronics, "Grill"),
+    CategoriesItems(R.drawable.ic_electronics, "Water Prifier"),
+
     )
 
 val officeSuppliesList = listOf(
     CategoriesItems(R.drawable.ic_fashion, "Printer"),
     CategoriesItems(R.drawable.ic_garden, "Action Camera"),
     CategoriesItems(R.drawable.ic_electronics, "Projector"),
+)
+
+val musicalInstrumentsList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Guitar"),
+    CategoriesItems(R.drawable.ic_electronics, "Keyboard"),
+    CategoriesItems(R.drawable.ic_electronics, "Blowing"),
+    CategoriesItems(R.drawable.ic_electronics, "Stage Sound"),
 )
