@@ -7,9 +7,8 @@ data class CategoriesItems(val icon: Int, val name: String)
 val categoriesList = listOf(
     CategoriesItems(R.drawable.ic_electronics, "Electronics"), //
     CategoriesItems(R.drawable.ic_home_kitchen, "Home & Kitchen"), //
-    CategoriesItems(R.drawable.ic_beauty_care, "Beauty & Care"),
-    CategoriesItems(R.drawable.ic_shoes_jewelry, "Shoes & Jewelry"),
-    CategoriesItems(R.drawable.ic_toys_games, "Toys & Games"),
+    CategoriesItems(R.drawable.ic_shoes_jewelry, "Shoes"), //
+    CategoriesItems(R.drawable.ic_toys_games, "Toys & Games"), //
     CategoriesItems(R.drawable.ic_health_baby_care, "Health & Baby Care"),
     CategoriesItems(R.drawable.ic_cell_accessories, "Cell & Accessories"),
     CategoriesItems(R.drawable.ic_sports_outdoors, "Sports & Outdoors"),
@@ -63,7 +62,6 @@ val computerAccessoriesList = listOf(
     CategoriesItems(R.drawable.ic_electronics, "Headset"),
     CategoriesItems(R.drawable.ic_electronics, "Headset"),
     CategoriesItems(R.drawable.ic_electronics, "Headset"),
-
 )
 //
 val homeKitchenList = listOf(
@@ -76,7 +74,7 @@ val homeKitchenList = listOf(
     CategoriesItems(R.drawable.ic_electronics, "Coffee Machine"),
     CategoriesItems(R.drawable.ic_electronics, "Toaster"),
     CategoriesItems(R.drawable.ic_electronics, "Grill"),
-    CategoriesItems(R.drawable.ic_electronics, "Water Prifier"),
+    CategoriesItems(R.drawable.ic_electronics, "Water Purifier"),
 
     )
 
@@ -91,4 +89,25 @@ val musicalInstrumentsList = listOf(
     CategoriesItems(R.drawable.ic_electronics, "Keyboard"),
     CategoriesItems(R.drawable.ic_electronics, "Blowing"),
     CategoriesItems(R.drawable.ic_electronics, "Stage Sound"),
+)
+
+val ShoesList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Running Shoes"),
+    CategoriesItems(R.drawable.ic_electronics, "Sneakers"),
+    CategoriesItems(R.drawable.ic_electronics, "Casual"),
+    CategoriesItems(R.drawable.ic_electronics, "Sandals"),
+    CategoriesItems(R.drawable.ic_electronics, "Slippers"),
+)
+
+val ToysGamesList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Puzzle"),
+    CategoriesItems(R.drawable.ic_electronics, "Board Games"),
+)
+
+val ShoesList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Running Shoes"),
+    CategoriesItems(R.drawable.ic_electronics, "Sneakers"),
+    CategoriesItems(R.drawable.ic_electronics, "Casual"),
+    CategoriesItems(R.drawable.ic_electronics, "Sandals"),
+    CategoriesItems(R.drawable.ic_electronics, "Slippers"),
 )
