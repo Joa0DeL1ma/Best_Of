@@ -13,11 +13,10 @@ val categoriesList = listOf(
     CategoriesItems(R.drawable.ic_sports_outdoors, "Sports & Outdoors"),//
     CategoriesItems(R.drawable.ic_pet_supplies, "Pet Supplies"), //
     CategoriesItems(R.drawable.ic_office, "Office Supplies"),//
-    CategoriesItems(R.drawable.ic_tools, "Tools"),
-    CategoriesItems(R.drawable.ic_garden, "Garden & Outdoor"),
-    CategoriesItems(R.drawable.ic_baby_products, "Baby Products"),
-    CategoriesItems(R.drawable.ic_fashion, "Fashion"),
-    CategoriesItems(R.drawable.ic_grocery_gourmet, "Grocery & Gourmet"),
+    CategoriesItems(R.drawable.ic_tools, "Tools"),//
+    CategoriesItems(R.drawable.ic_garden, "Garden & Pool"), //
+    CategoriesItems(R.drawable.ic_baby_products, "Baby Products"),//
+    CategoriesItems(R.drawable.ic_grocery_gourmet, "Grocery & Gourmet"), //
     CategoriesItems(R.drawable.ic_automotive, "Automotive"),
     CategoriesItems(R.drawable.ic_musical_instruments, "Musical Instruments"),
     CategoriesItems(R.drawable.ic_luggage, "Luggage & Travel Gear"),
@@ -126,9 +125,40 @@ val PetSuppliesList = listOf(
 )
 
 val ToolsList = listOf(
-    CategoriesItems(R.drawable.ic_electronics, "Academy"),
-    CategoriesItems(R.drawable.ic_electronics, "Hiking"),
-    CategoriesItems(R.drawable.ic_electronics, "Cyclist"),
-    CategoriesItems(R.drawable.ic_electronics, "Swimming"),
-    CategoriesItems(R.drawable.ic_electronics, "Fighting"),
+    CategoriesItems(R.drawable.ic_electronics, "Drill"),
+    CategoriesItems(R.drawable.ic_electronics, "Screwdriver"),
+    CategoriesItems(R.drawable.ic_electronics, "Portable Staircase"),
+    CategoriesItems(R.drawable.ic_electronics, "Tool Kit"),
+)
+
+val GardenPoolList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Lawn Mower"),
+    CategoriesItems(R.drawable.ic_electronics, "Irrigation"),
+    CategoriesItems(R.drawable.ic_electronics, "Pressure Washer"),
+    CategoriesItems(R.drawable.ic_electronics, "Leaf Blower"),
+)
+
+val BabyProductsList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Disposable Diaper"),
+    CategoriesItems(R.drawable.ic_electronics, "Baby Monitor"),
+    CategoriesItems(R.drawable.ic_electronics, "Baby Wipes"),
+    CategoriesItems(R.drawable.ic_electronics, "Baby Bottle"),
+    CategoriesItems(R.drawable.ic_electronics, "Rash Cream"),
+)
+
+val GroceryGourmetList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Coffee"),
+    CategoriesItems(R.drawable.ic_electronics, "Bottled Water"),
+    CategoriesItems(R.drawable.ic_electronics, "Healthy Snack"),
+    CategoriesItems(R.drawable.ic_electronics, "Condiment"),
+    CategoriesItems(R.drawable.ic_electronics, "Energy Drink"),
+)
+
+val AutomotiveList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Windshield Wiper"),
+    CategoriesItems(R.drawable.ic_electronics, "Leather Cleaner"),
+    CategoriesItems(R.drawable.ic_electronics, "Interior Cleaner"),
+    CategoriesItems(R.drawable.ic_electronics, "Cleaning Gel"),
+    CategoriesItems(R.drawable.ic_electronics, "Car Shampoo"),
+    CategoriesItems(R.drawable.ic_electronics, "LED Lights"),
 )
