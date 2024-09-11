@@ -9,11 +9,10 @@ val categoriesList = listOf(
     CategoriesItems(R.drawable.ic_home_kitchen, "Home & Kitchen"), //
     CategoriesItems(R.drawable.ic_shoes_jewelry, "Shoes"), //
     CategoriesItems(R.drawable.ic_toys_games, "Toys & Games"), //
-    CategoriesItems(R.drawable.ic_health_baby_care, "Health & Baby Care"),
-    CategoriesItems(R.drawable.ic_cell_accessories, "Cell & Accessories"),
-    CategoriesItems(R.drawable.ic_sports_outdoors, "Sports & Outdoors"),
-    CategoriesItems(R.drawable.ic_pet_supplies, "Pet Supplies"),
-    CategoriesItems(R.drawable.ic_office, "Office Supplies"),
+    CategoriesItems(R.drawable.ic_health_baby_care, "Health"),//
+    CategoriesItems(R.drawable.ic_sports_outdoors, "Sports & Outdoors"),//
+    CategoriesItems(R.drawable.ic_pet_supplies, "Pet Supplies"), //
+    CategoriesItems(R.drawable.ic_office, "Office Supplies"),//
     CategoriesItems(R.drawable.ic_tools, "Tools"),
     CategoriesItems(R.drawable.ic_garden, "Garden & Outdoor"),
     CategoriesItems(R.drawable.ic_baby_products, "Baby Products"),
@@ -104,10 +103,32 @@ val ToysGamesList = listOf(
     CategoriesItems(R.drawable.ic_electronics, "Board Games"),
 )
 
-val ShoesList = listOf(
-    CategoriesItems(R.drawable.ic_electronics, "Running Shoes"),
-    CategoriesItems(R.drawable.ic_electronics, "Sneakers"),
-    CategoriesItems(R.drawable.ic_electronics, "Casual"),
-    CategoriesItems(R.drawable.ic_electronics, "Sandals"),
-    CategoriesItems(R.drawable.ic_electronics, "Slippers"),
+val HealthList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Laser"),
+    CategoriesItems(R.drawable.ic_electronics, "Toothpaste"),
+    CategoriesItems(R.drawable.ic_electronics, "Toothbrush"),
+    CategoriesItems(R.drawable.ic_electronics, "Soap"),
+    CategoriesItems(R.drawable.ic_electronics, "Shampoo"),
+)
+
+val SportsOutdoorsList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Academy"),
+    CategoriesItems(R.drawable.ic_electronics, "Hiking"),
+    CategoriesItems(R.drawable.ic_electronics, "Cyclist"),
+    CategoriesItems(R.drawable.ic_electronics, "Swimming"),
+    CategoriesItems(R.drawable.ic_electronics, "Fighting"),
+)
+
+val PetSuppliesList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Dog"),
+    CategoriesItems(R.drawable.ic_electronics, "Cat"),
+    CategoriesItems(R.drawable.ic_electronics, "Fish"),
+)
+
+val ToolsList = listOf(
+    CategoriesItems(R.drawable.ic_electronics, "Academy"),
+    CategoriesItems(R.drawable.ic_electronics, "Hiking"),
+    CategoriesItems(R.drawable.ic_electronics, "Cyclist"),
+    CategoriesItems(R.drawable.ic_electronics, "Swimming"),
+    CategoriesItems(R.drawable.ic_electronics, "Fighting"),
 )
