@@ -46,7 +46,7 @@ val electronicsList = listOf(
 val computerAccessoriesList = listOf(
     CategoriesItems(R.drawable.ic_mouse, "Mouse"),
     CategoriesItems(R.drawable.ic_keyboard, "Keyboard"),
-    CategoriesItems(R.drawable.ic_electronics, "Monitor"),
+    CategoriesItems(R.drawable.ic_tv, "Monitor"),
     CategoriesItems(R.drawable.ic_electronics, "Webcam"),
     CategoriesItems(R.drawable.ic_electronics, "Mouse Pad"),
     CategoriesItems(R.drawable.ic_electronics, "Headset"),

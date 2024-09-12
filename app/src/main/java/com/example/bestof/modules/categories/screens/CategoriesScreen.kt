@@ -1,6 +1,8 @@
 package com.example.bestof.modules.categories.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,7 +14,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -28,6 +29,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -46,6 +51,9 @@ import com.example.bestof.ui.theme.BestOfTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoriesScreen() {
+
+    var selectedIndex by remember { mutableStateOf<Int?>(0) }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -81,77 +89,87 @@ fun CategoriesScreen() {
                     }
 
                     LazyColumn {
-                        items(categoriesList) { category ->
+                        itemsIndexed(categoriesList) { index, category ->
+                            val isSelected = selectedIndex == index
                             Row(
                                 modifier = Modifier
-                                    .background(Color(0xffD9D9D9))
+                                    .height(44.dp)
                                     .width(115.dp)
+                                    .clickable(
+                                        interactionSource = remember { MutableInteractionSource() },
+                                        indication = null,
+                                        onClick = { selectedIndex = if (isSelected) null else index }
+                                    )
+                                    .then(if (!isSelected) Modifier.background(Color(0xFFD9D9D9)) else Modifier)
                             ) {
                                 Icon(
                                     modifier = Modifier
                                         .padding(start = 2.dp)
                                         .align(Alignment.CenterVertically),
                                     painter = painterResource(id = category.icon),
-                                    contentDescription = ""
+                                    contentDescription = null
                                 )
                                 Text(
-                                    overflow = TextOverflow.Ellipsis,
+                                    overflow = TextOverflow.Clip,
                                     maxLines = 2,
-                                    modifier = Modifier.padding(
-                                        start = 8.dp,
-                                        top = 12.dp,
-                                        bottom = 8.dp
-                                    ),
+                                    modifier = Modifier
+                                        .align(Alignment.CenterVertically)
+                                        .padding(start = 4.dp),
                                     style = MaterialTheme.typography.labelLarge,
                                     text = category.name
                                 )
                             }
                         }
                     }
-
-
                 }
+
                 val rows = electronicsList.chunked(3)
-                    LazyColumn(modifier = Modifier) {
-                        item{
-                            Spacer(modifier = Modifier.height(70.dp))
-                        }
-                        itemsIndexed(rows) { _, rowItems ->
-                            Row(
-                                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                                modifier = Modifier.padding(8.dp)
-                            ) {
-                                rowItems.forEach { item ->
-                                    Column(
-                                        modifier = Modifier
-                                            .padding(start = 4.dp, bottom = 4.dp)
-                                            .height(70.dp)
-                                            .weight(1f)
-                                            .clip(RoundedCornerShape(8.dp))
-                                            .background(Color(0xffD9D9D9)),
-                                        verticalArrangement = Arrangement.Center,
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        Icon(
-                                            painter = painterResource(id = item.icon),
-                                            contentDescription = item.name
-                                        )
-                                        Text(
-                                            textAlign = TextAlign.Center,
-                                            text = item.name,
-                                        )
-                                    }
-                                }
-                                repeat(3 - rowItems.size) {
+                LazyColumn(modifier = Modifier) {
+                    item {
+                        Spacer(modifier = Modifier.height(70.dp))
+                    }
+                    itemsIndexed(rows) { _, rowItems ->
+                        Row(
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            modifier = Modifier.padding(8.dp)
+                        ) {
+                            rowItems.forEach { item ->
+                                Column(
+                                    modifier = Modifier
+                                        .padding(start = 4.dp, bottom = 4.dp)
+                                        .height(70.dp)
+                                        .weight(1f)
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .background(Color(0xffD9D9D9)),
+                                    verticalArrangement = Arrangement.Center,
+                                    horizontalAlignment = Alignment.CenterHorizontally
+                                ) {
+                                    Icon(
+                                        painter = painterResource(id = item.icon),
+                                        contentDescription = item.name
+                                    )
                                     Text(
-                                        text = "", // Empty text
-                                        modifier = Modifier.weight(1f) // Takes up the same space as others
+                                        modifier = Modifier.padding(
+                                            top = 4.dp,
+                                            start = 4.dp,
+                                            end = 4.dp
+                                        ),
+                                        style = MaterialTheme.typography.labelMedium,
+                                        textAlign = TextAlign.Center,
+                                        text = item.name,
                                     )
                                 }
+                            }
+                            repeat(3 - rowItems.size) {
+                                Text(
+                                    text = "", // Empty text
+                                    modifier = Modifier.weight(1f) // Takes up the same space as others
+                                )
                             }
                         }
                     }
                 }
+            }
         },
         bottomBar = {
             BottomAppBar(
