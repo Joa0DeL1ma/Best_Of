@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.dp
 import com.example.bestof.R
 import com.example.bestof.modules.cart.widgets.BackButton
 import com.example.bestof.modules.categories.model.categoriesList
+import com.example.bestof.modules.categories.model.electronicsList
 import com.example.bestof.ui.theme.BestOfTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -110,7 +111,7 @@ fun CategoriesScreen() {
 
 
                 }
-                val rows = categoriesList.chunked(3)
+                val rows = electronicsList.chunked(3)
                     LazyColumn(modifier = Modifier) {
                         item{
                             Spacer(modifier = Modifier.height(70.dp))
