@@ -44,14 +44,33 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bestof.R
 import com.example.bestof.modules.cart.widgets.BackButton
+import com.example.bestof.modules.categories.model.CategoriesItems
 import com.example.bestof.modules.categories.model.categoriesList
+import com.example.bestof.modules.categories.model.computerAccessoriesList
 import com.example.bestof.modules.categories.model.electronicsList
 import com.example.bestof.ui.theme.BestOfTheme
+import java.util.Locale
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoriesScreen() {
-
+    val categoryMap = mapOf(
+        "Electronics" to electronicsList,
+//        "Home & Kitchen" to homeKitchenList,
+//        "Shoes" to shoesList,
+//        "Toys & Games" to toysGamesList,
+//        "Sports & Outdoors" to sportsOutdoorsList,
+//        "Pet Supplies" to petSuppliesList,
+//        "Office Supplies" to officeSuppliesList,
+//        "Tools" to toolsList,
+//        "Garden & Pool" to gardenPoolList,
+//        "Baby Products" to babyProductsList,
+//        "Grocery & Gourmet" to groceryGourmetList,
+//        "Automotive" to automotiveList,
+//        "Musical Instruments" to musicalInstrumentsList,
+        "Computer Accessories" to computerAccessoriesList,
+    )
+    var selectedType by remember { mutableStateOf<List<CategoriesItems>?>(electronicsList) }
     var selectedIndex by remember { mutableStateOf<Int?>(0) }
 
     Scaffold(
@@ -75,9 +94,8 @@ fun CategoriesScreen() {
             )
         },
         content = { padding ->
-
             Row(modifier = Modifier.padding(padding)) {
-                Column { //todo fazer uma section aqui
+                Column {
                     Box {
                         BackButton(
                             modifier = Modifier.padding(
@@ -98,7 +116,11 @@ fun CategoriesScreen() {
                                     .clickable(
                                         interactionSource = remember { MutableInteractionSource() },
                                         indication = null,
-                                        onClick = { selectedIndex = if (isSelected) null else index }
+                                        onClick = {
+                                            selectedIndex = if (isSelected) null else index
+                                            selectedType =
+                                                if (isSelected) null else categoryMap[category.name]
+                                        }
                                     )
                                     .then(if (!isSelected) Modifier.background(Color(0xFFD9D9D9)) else Modifier)
                             ) {
@@ -123,7 +145,7 @@ fun CategoriesScreen() {
                     }
                 }
 
-                val rows = electronicsList.chunked(3)
+                val rows = selectedType?.chunked(3) ?: emptyList()
                 LazyColumn(modifier = Modifier) {
                     item {
                         Spacer(modifier = Modifier.height(70.dp))
@@ -162,8 +184,8 @@ fun CategoriesScreen() {
                             }
                             repeat(3 - rowItems.size) {
                                 Text(
-                                    text = "", // Empty text
-                                    modifier = Modifier.weight(1f) // Takes up the same space as others
+                                    text = "",
+                                    modifier = Modifier.weight(1f)
                                 )
                             }
                         }
@@ -272,12 +294,4 @@ fun CategoriesScreen() {
             }
         }
     )
-}
-
-@Preview
-@Composable
-private fun CategoriesScreenPreview() {
-    BestOfTheme {
-        CategoriesScreen()
-    }
 }
