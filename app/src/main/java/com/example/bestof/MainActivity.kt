@@ -24,9 +24,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     //DealsScreen()
-                    //HomeScreen()
+                    HomeScreen()
                     //ProductScreen()
-                    CategoriesScreen()
+                    //CategoriesScreen()
                 }
             }
         }

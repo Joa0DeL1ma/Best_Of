@@ -1,84 +1,80 @@
 package com.example.bestof.modules.home.widgets
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.bestof.R
+import com.example.bestof.ui.theme.BestOfTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SearchSection (modifier: Modifier = Modifier) {
-    val searchText = ""
-    Row(
-        modifier = modifier,
-        horizontalArrangement = Arrangement.SpaceEvenly,
-        verticalAlignment = Alignment.CenterVertically
-
-    ) {
-        OutlinedTextField(
-            value = "", onValueChange = {},
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xffD9D9D9),
-                unfocusedContainerColor = Color(0xffD9D9D9),
-                unfocusedBorderColor = Color(0xffD9D9D9),
-            ),
-            singleLine = true,
-            textStyle = TextStyle(textAlign = TextAlign.Center),
-            label = {
-                Icon(
-                    imageVector = Icons.Filled.Search,
-                    contentDescription = "",
-                    tint = Color.Black
-                )
-            },
-            trailingIcon = {
-                if (searchText != "") { //todo realizar uma mudança de enabled aqui
-                    IconButton(
-                        content = {
-                            Icon(
-                                imageVector = Icons.Filled.Search,
-                                contentDescription = "",
-                                tint = Color.Black
-                            )
-                        }, onClick = {}
+fun SearchSection(
+    query: String,
+    onQueryChanged: (String) -> Unit,
+    onClearClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    OutlinedTextField(
+        value = query,
+        onValueChange = { onQueryChanged(it) },
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        placeholder = {
+            Text(text = "Search...")
+        },
+        leadingIcon = {
+            Icon(
+                imageVector = Icons.Default.Search,
+                contentDescription = "Search Icon"
+            )
+        },
+        trailingIcon = {
+            if (query.isNotEmpty()) {
+                IconButton(onClick = onClearClick) {
+                    Icon(
+                        imageVector = Icons.Default.Close,
+                        contentDescription = "Clear Icon"
                     )
                 }
-            },
-            shape = RoundedCornerShape(40.dp)
-
+            }
+        },
+        singleLine = true,
+        shape = MaterialTheme.shapes.small,
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.Gray,
+            unfocusedBorderColor = Color.Gray,
+            cursorColor = Color.Gray
         )
-        IconButton(
-            onClick = { /*TODO*/ }) {
-            Icon(
-                modifier = Modifier.size(32.dp),
-                painter = painterResource(id = R.drawable.ic_search_sort),
-                contentDescription = ""
-            )
-        }
-    }
+    )
 }
-
 
 @Preview(showBackground = true)
 @Composable
 fun SearchSectionPreview() {
-    SearchSection()
+    var query by remember { mutableStateOf("") }
+    BestOfTheme {
+        SearchSection(
+            query = query,
+            onQueryChanged = { query = it },
+            onClearClick = { query = "" }
+        )
+    }
 }

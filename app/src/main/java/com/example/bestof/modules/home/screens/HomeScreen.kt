@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -21,6 +22,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,37 +41,40 @@ import com.example.bestof.ui.theme.BestOfTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen() {
-
+    var searchQuery by remember { mutableStateOf("") }
     Scaffold(
         topBar = {
-            CenterAlignedTopAppBar(
-                modifier = Modifier.height(50.dp),
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(Color(0xffD9D9D9)),
-                title = {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Text(
-                            textAlign = TextAlign.Center,
-                            text = "Best of",
-                            style = MaterialTheme.typography.headlineMedium
-                        )
-                    }
+            Column {
+                CenterAlignedTopAppBar(
+                    modifier = Modifier.height(50.dp),
+                    colors = TopAppBarDefaults.centerAlignedTopAppBarColors(Color(0xffD9D9D9)),
+                    title = {
+                        Column(
+                            modifier = Modifier.fillMaxSize(),
+                            verticalArrangement = Arrangement.Center,
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                textAlign = TextAlign.Center,
+                                text = "Best of",
+                                style = MaterialTheme.typography.headlineMedium
+                            )
+                        }
 
-                })
+                    })
+                SearchSection(
+                    query = searchQuery,
+                    onQueryChanged = { searchQuery = it },
+                    onClearClick = { searchQuery = "" }
+                )
+            }
+
         },
         content = { padding ->
-            Column(modifier = Modifier.padding(padding)) {
-                SearchSection(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 6.dp, bottom = 16.dp),
-                )
-                ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
-                ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
-                ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
+            LazyColumn (modifier = Modifier.padding(padding)) {
+                items(6) {
+                    ProductsListRow(modifier = Modifier.padding(bottom = 16.dp))
+                }
             }
         },
         bottomBar = {
