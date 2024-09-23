@@ -11,6 +11,8 @@ import com.example.bestof.modules.cart.screens.DealsScreen
 import com.example.bestof.modules.categories.screens.CategoriesScreen
 import com.example.bestof.modules.home.screens.HomeScreen
 import com.example.bestof.modules.product.ProductScreen
+import com.example.bestof.modules.product.model.Headphone
+import com.example.bestof.modules.product.model.ProductInfo
 import com.example.bestof.ui.theme.BestOfTheme
 
 class MainActivity : ComponentActivity() {
@@ -25,7 +27,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //DealsScreen()
                     //HomeScreen()
-                    ProductScreen()
+                    ProductScreen(product = Headphone[1])
                     //CategoriesScreen()
                 }
             }
