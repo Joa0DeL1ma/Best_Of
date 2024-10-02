@@ -5,5 +5,5 @@ Um aplicativo que fiz como forma de estudos no meu tempo livre
 - Os produtos recomendados tem uma curadoria por parte de I.A.
 - Todos os produtos estão disponíveis na Amazon
 
-  Futuramente haverá uma aba de Deals, que mostrará promoções fortes no momento.
+  Futuramente haverá uma aba de Deals, que mostrará promoções fortes no momento..
 
