@@ -7,4 +7,3 @@ Um aplicativo que fiz como forma de estudos no meu tempo livre
 
   Futuramente haverá uma aba de Deals, que mostrará promoções fortes no momento.
 
-.
